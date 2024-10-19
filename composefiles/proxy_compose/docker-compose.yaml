@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  http-srv:
+    image: httpd:latest
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html
+    networks:
+      - composed_proxy
+
+  proxy-cntr:
+    image: nginx:1.23
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    networks:
+      - composed_proxy
+
+networks:
+  composed_proxy:

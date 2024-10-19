@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: .
+    image: nginx-sk
+    ports:
+      - "80:80"
+
+  http-srv:
+    image: httpd:latest
+
