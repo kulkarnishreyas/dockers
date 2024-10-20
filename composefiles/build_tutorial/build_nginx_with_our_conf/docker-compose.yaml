@@ -4,7 +4,6 @@ services:
   nginx:
     build:
       context: .
-    image: nginx-sk
     ports:
       - "80:80"
 
